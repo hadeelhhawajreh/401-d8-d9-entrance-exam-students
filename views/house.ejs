@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>house</title>
+</head>
+<body>
+    <% house.forEach(ele =>{%>
+        <div style="width: max-content;">
+    <img src="<%= ele.image%>" alt="image" height="200px" >
+    <h3> name: <%= ele.name%></h3>
+    <p>patronus: <%= ele.patronus%></p>
+    <p> alive:<%= ele.alive%></p>
+    <form action="/my-character" method="POST">
+     <p hidden> <%= ele.image%></p>    
+    <input hidden type="text" name="name" value="<%= ele.name%>">
+    <input hidden type="text" name="patronus" value="<%= ele.patronus%>">
+    <input hidden type="text" name="alive" value="<%= ele.alive%>">
+    <input type="submit" value="adding to database">
+</div>
+<% });%>
+    
+</body>
+</html>
