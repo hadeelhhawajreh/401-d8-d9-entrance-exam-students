@@ -52,13 +52,12 @@ function Harry(obj) {
 // ------- Routes -------
 // ----------------------
 app.get('/home', homefun);
-app.get('/house/:character', viewChar);
-app.post('/my-character', addingToDB);
-app.get('/my-character', readingFromDB);
-app.get('/my-character/:id', showOne);
-app.put('/my-character/:id', updating);
-app.delete('/my-character/:id', deleting);
-
+app.get('/house/:character',viewChar);
+app.post('/my-character',addingToDB);
+app.get('/my-character',readingFromDB);
+app.get('/my-character/:id',showOne);
+app.put('/my-character/:id',updating);
+app.delete('/my-character/:id',deleting);
 // --------------------------------
 // ---- Pages Routes functions ----
 // --------------------------------
@@ -66,7 +65,7 @@ function homefun(req, res) {
   res.render('home', { msg: 'inside home' });
 }
 function viewChar(req, res) {
-  let houseName = req.params.character;
+  let houseName=req.params.character;
   //http://hp-api.herokuapp.com/api/characters/house/gryffindor
   superagent.get(`http://hp-api.herokuapp.com/api/characters/house/${houseName}`).then(data => {
     let arr = data.body.map(ele => {
