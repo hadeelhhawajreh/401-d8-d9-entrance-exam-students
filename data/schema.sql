@@ -1,3 +1,4 @@
+drop table if exists potter;
 create table potter(
     id serial not null primary key,
     image varchar(255),
